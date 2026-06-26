@@ -1,0 +1,16 @@
+id_cliente,nombre,apellido,tipo_documento,numero_documento,fecha_nacimiento,genero,ciudad,departamento,telefono,email,fecha_vinculacion,segmento
+C001,Camila,Rodríguez Torres,CC,52101234,1985-03-12,F,Bogotá,Cundinamarca,3101234567,camila.rodriguez@email.com,2018-01-15,Premium
+C002,Andrés,Martínez López,CC,80234567,1979-07-22,M,Medellín,Antioquia,3152345678,andres.martinez@email.com,2017-06-10,Standard
+C003,Luisa,Fernández Gómez,CC,43345678,1992-11-05,F,Cali,Valle del Cauca,3173456789,luisa.fernandez@email.com,2020-03-22,Standard
+C004,Carlos,Herrera Jiménez,CC,10456789,1970-01-30,M,Barranquilla,Atlántico,3004567890,carlos.herrera@email.com,2015-09-01,Premium
+C005,Diana,Vargas Ospina,CC,34567890,1988-05-14,F,Bucaramanga,Santander,3125678901,diana.vargas@email.com,2021-02-28,Basic
+C006,Felipe,Castro Mora,CC,11678901,1995-09-08,M,Pereira,Risaralda,3186789012,felipe.castro@email.com,2022-07-11,Basic
+C007,Sandra,Ríos Peña,CC,44789012,1983-12-19,F,Manizales,Caldas,3017890123,sandra.rios@email.com,2019-04-05,Standard
+C008,Jorge,Salcedo Duarte,CC,79890123,1975-06-27,M,Ibagué,Tolima,3048901234,jorge.salcedo@email.com,2016-11-20,Premium
+C009,María,Castaño Restrepo,CC,42901234,1990-02-03,F,Cartagena,Bolívar,3059012345,maria.castano@email.com,2023-01-09,Basic
+C010,Ricardo,Muñoz Álvarez,CC,19012345,1968-08-16,M,Cúcuta,Norte de Santander,3130123456,ricardo.munoz@email.com,2014-05-30,Premium
+C011,Paola,Suárez Blanco,CC,53123456,1998-04-21,F,Santa Marta,Magdalena,3161234567,paola.suarez@email.com,2022-10-15,Basic
+C012,Hernán,Lozano Acosta,CC,91234567,1965-10-09,M,Villavicencio,Meta,3172345678,hernan.lozano@email.com,2013-08-12,Premium
+C013,Natalia,Pineda Cruz,CC,46345678,1993-07-28,F,Neiva,Huila,3083456789,natalia.pineda@email.com,2020-09-03,Standard
+C014,Sebastián,Torres Ramos,CC,98456789,2000-03-15,M,Armenia,Quindío,3144567890,sebastian.torres@email.com,2023-05-17,Basic
+C015,Gloria,Mejía Cardona,CC,47567890,1972-01-07,F,Montería,Córdoba,3025678901,gloria.mejia@email.com,2016-03-25,Standard

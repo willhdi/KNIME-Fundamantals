@@ -1,0 +1,16 @@
+id_siniestro,id_poliza,id_cliente,fecha_ocurrencia,fecha_reporte,tipo_siniestro,descripcion,ciudad_ocurrencia,valor_reclamado,valor_aprobado,estado,dias_resolucion,causa
+S001,P001,C001,2023-04-10,2023-04-11,Choque,Colisión con otro vehículo en intersección,Bogotá,8500000,7200000,Pagado,18,Culpa propia
+S002,P003,C002,2022-09-15,2022-09-20,Muerte accidental,Accidente de tránsito,Medellín,200000000,200000000,Pagado,45,Accidente
+S003,P006,C004,2023-11-02,2023-11-03,Robo total,Hurto del vehículo en parqueadero,Barranquilla,55000000,50000000,En proceso,0,Robo
+S004,P010,C007,2023-06-18,2023-06-20,Incendio,Cortocircuito en cocina,Manizales,15000000,12000000,Pagado,30,Evento fortuito
+S005,P011,C008,2021-02-28,2021-03-05,Invalidez,Accidente laboral con pérdida de movilidad,Ibagué,400000000,380000000,Pagado,60,Accidente laboral
+S006,P012,C008,2023-12-05,2023-12-06,Daños parciales,Granizo dañó capó y parabrisas,Ibagué,4200000,3800000,En revisión,0,Fenómeno natural
+S007,P014,C010,2023-07-22,2023-07-23,Choque,Accidente en vía principal,Cúcuta,12000000,10500000,Pagado,22,Culpa de tercero
+S008,P016,C010,2022-03-10,2022-03-12,Enfermedad grave,Diagnóstico de cáncer,Cúcuta,0,0,Rechazado,15,Preexistencia
+S009,P019,C012,2020-01-15,2020-01-18,Muerte natural,Enfermedad cardiovascular,Villavicencio,1500000000,1500000000,Pagado,90,Enfermedad
+S010,P020,C013,2023-10-11,2023-10-12,Hospitalización,Cirugía de apéndice,Neiva,8000000,7500000,Pagado,12,Enfermedad
+S011,P001,C001,2023-09-30,2023-10-01,Daños parciales,Rayón en puerta trasera,Bogotá,1800000,1200000,Pagado,10,Vandalismo
+S012,P023,C015,2023-08-14,2023-08-16,Robo contenidos,Hurto de electrodomésticos,Montería,6500000,5000000,En proceso,0,Robo
+S013,P007,C004,2021-11-05,2021-11-08,Invalidez permanente,Accidente en moto,Barranquilla,250000000,250000000,Pagado,75,Accidente
+S014,P006,C004,2024-01-20,2024-01-21,Choque,Impacto trasero en semáforo,Barranquilla,5500000,5500000,En revisión,0,Culpa de tercero
+S015,P008,C005,2023-06-05,2023-06-05,Lesiones a terceros,Atropello peatón en zona escolar,Bucaramanga,18000000,18000000,Pagado,35,Culpa propia
