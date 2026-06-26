@@ -1,5 +1,4 @@
-# Introduction to KNIME Analytics Platform  
-# Introducción a KNIME Analytics Platform
+# Introduction to KNIME Analytics Platform / Introducción a KNIME Analytics Platform
 
 > **Study guide / Guía de estudio**  
 > For absolute beginners following the introductory KNIME course structure.  
@@ -29,6 +28,28 @@ Este documento no busca reemplazar el curso. Busca ayudarte a entender qué est�
 
 ---
 
+## Table of contents / Tabla de contenidos
+
+1. [First steps into KNIME Analytics Platform / Primeros pasos en KNIME Analytics Platform](#1-first-steps-into-knime-analytics-platform)
+   - 1.1 What is KNIME? / ¿Qué es KNIME?
+   - 1.2 The workflow / El workflow
+   - 1.3 Nodes / Nodos
+   - 1.4 Node states / Estados de los nodos
+   - 1.5 Node ports / Puertos de los nodos
+   - 1.6 The KNIME interface / La interfaz de KNIME
+   - 1.7 First mental model / Primer modelo mental
+   - 1.8 Example: reading HR data / Ejemplo: leer datos de HR
+2. [Data Access / Acceso a datos](#2-data-access)
+3. [Data Cleaning / Limpieza de datos](#3-data-cleaning)
+4. [Data Analysis / Análisis de datos](#4-data-analysis)
+5. [Practical mini-case / Mini caso práctico](#5-practical-mini-case)
+6. [Beginner mistakes / Errores comunes de principiantes](#6-beginner-mistakes)
+7. [Final summary / Resumen final](#7-final-summary)
+8. [Quick reference / Referencia rápida](#8-quick-reference)
+9. [What to learn next / Qué aprender después](#9-what-to-learn-next)
+
+---
+
 ## Course map / Mapa del curso
 
 The course follows a natural data analysis sequence: first you learn the tool, then you access data, then you clean it, and finally you analyze it.
@@ -44,8 +65,7 @@ flowchart LR
 
 ---
 
-# 1. First steps into KNIME Analytics Platform  
-# 1. Primeros pasos en KNIME Analytics Platform
+# 1. First steps into KNIME Analytics Platform / Primeros pasos en KNIME Analytics Platform
 
 ## 1.1 What is KNIME? / ¿Qué es KNIME?
 
@@ -118,7 +138,62 @@ Nodos típicos para principiantes:
 
 ---
 
-## 1.4 The KNIME interface / La interfaz de KNIME
+## 1.4 Node states / Estados de los nodos
+
+Every node in KNIME shows a colored status indicator below it. This is one of the first things a beginner needs to learn, because it tells you exactly what state the node is in and whether something is wrong.
+
+Cada nodo en KNIME muestra un indicador de estado con color debajo de él. Esto es una de las primeras cosas que un principiante necesita aprender, porque indica exactamente en qué estado está el nodo y si algo está mal.
+
+| State / Estado | Color / Color | Meaning / Significado |
+|---|---|---|
+| Not configured / Sin configurar | Grey / Gris | The node has not been set up yet. Double-click to open its settings. / El nodo aún no ha sido configurado. Haz doble clic para abrir su configuración. |
+| Configured / Configurado | Yellow / Amarillo | The node is configured but has not run yet. / El nodo está configurado pero aún no se ha ejecutado. |
+| Executed / Ejecutado | Green / Verde | The node ran successfully and its output is available. / El nodo se ejecutó con éxito y su salida está disponible. |
+| Error / Error | Red / Rojo | The node failed. Right-click and select "Open node message" to read why. / El nodo falló. Haz clic derecho y selecciona "Open node message" para leer el motivo. |
+
+Key interactions:
+- **Double-click**: opens the node configuration dialog.
+- **F7** or right-click → Execute: runs the node.
+- Right-click → **Open first out-port view**: inspects the output table.
+
+Interacciones clave:
+- **Doble clic**: abre el diálogo de configuración del nodo.
+- **F7** o clic derecho → Execute: ejecuta el nodo.
+- Clic derecho → **Open first out-port view**: inspecciona la tabla de salida.
+
+> **Tip**: After executing a node, always inspect its output by right-clicking and opening the port view. Do not assume it produced what you expected.
+>
+> **Tip**: Después de ejecutar un nodo, siempre inspecciona su salida haciendo clic derecho y abriendo la vista del puerto. No asumas que produjo lo que esperabas.
+
+---
+
+## 1.5 Node ports / Puertos de los nodos
+
+Nodes have input ports on the left and output ports on the right. The port color indicates what type of data flows through it.
+
+Los nodos tienen puertos de entrada a la izquierda y puertos de salida a la derecha. El color del puerto indica qué tipo de dato fluye por él.
+
+| Port color / Color del puerto | Type / Tipo | Example / Ejemplo |
+|---|---|---|
+| Grey triangle / Triángulo gris | Data table / Tabla de datos | Output of `CSV Reader` |
+| Blue circle / Círculo azul | Model / Modelo | Output of a machine learning node |
+| Dark grey / Gris oscuro | Database connection / Conexión de base de datos | Output of `DB Connector` |
+| Red / Rojo | Report / Reporte | Output of a reporting node |
+
+For beginners, almost all connections will be grey triangles (data tables). If you try to connect two ports of incompatible types, KNIME will not allow the connection.
+
+Para principiantes, casi todas las conexiones serán triángulos grises (tablas de datos). Si intentas conectar dos puertos de tipos incompatibles, KNIME no permitirá la conexión.
+
+```mermaid
+flowchart LR
+    A[CSV Reader] -->|data table| B[Column Filter]
+    B -->|data table| C[GroupBy]
+    C -->|data table| D[Bar Chart]
+```
+
+---
+
+## 1.6 The KNIME interface / La interfaz de KNIME  
 
 When you open KNIME, the interface may look complex at first. For a beginner, you only need to focus on four main areas: the workflow editor, the node repository, the node monitor, and the space explorer.
 
@@ -139,7 +214,7 @@ El editor de workflows es donde construyes el flujo. El repositorio de nodos es 
 
 ---
 
-## 1.5 First mental model / Primer modelo mental
+## 1.7 First mental model / Primer modelo mental
 
 At the beginning, do not think of KNIME as a replacement for Python, R, SQL, or Excel. Think of KNIME as a visual pipeline builder. It allows you to organize a data process step by step and make each transformation visible.
 
@@ -160,7 +235,7 @@ La mayoría de los nodos reciben una tabla, aplican una transformación y devuel
 
 ---
 
-## 1.6 Example: reading HR data / Ejemplo: leer datos de HR
+## 1.8 Example: reading HR data / Ejemplo: leer datos de HR
 
 Suppose the HR department gives you a file with employee information. The first step is not to analyze it immediately. The first step is to read it correctly and inspect its structure.
 
@@ -189,8 +264,7 @@ flowchart LR
 
 ---
 
-# 2. Data Access  
-# 2. Acceso a datos
+# 2. Data Access / Acceso a datos
 
 ## 2.1 Why data access matters / Por qué importa el acceso a datos
 
@@ -307,8 +381,7 @@ Usa esta lista cada vez que cargues datos.
 
 ---
 
-# 3. Data Cleaning  
-# 3. Limpieza de datos
+# 3. Data Cleaning / Limpieza de datos
 
 ## 3.1 Why data cleaning is necessary / Por qué es necesaria la limpieza de datos
 
@@ -502,8 +575,7 @@ Este patrón no es obligatorio, pero es un orden útil para principiantes.
 
 ---
 
-# 4. Data Analysis  
-# 4. Análisis de datos
+# 4. Data Analysis / Análisis de datos
 
 ## 4.1 From clean data to answers / De datos limpios a respuestas
 
@@ -765,6 +837,34 @@ Los valores faltantes pueden cambiar el resultado de promedios, conteos y joins.
 
 ---
 
+## 6.5 Not inspecting intermediate outputs / No inspeccionar salidas intermedias
+
+A common mistake is building a long workflow and only checking the final result. If something is wrong in the middle, you will not know where the problem started. Use `Table View` nodes or right-click → "Open first out-port view" to check the output of each important node as you build.
+
+Un error común es construir un workflow largo y solo revisar el resultado final. Si algo está mal en el medio, no sabrás dónde empezó el problema. Usa nodos `Table View` o clic derecho → "Open first out-port view" para revisar la salida de cada nodo importante mientras construyes.
+
+---
+
+## 6.6 Not reading the error message / No leer el mensaje de error
+
+When a node turns red, the error message almost always tells you exactly what is wrong: a missing column, an incompatible type, a file not found. Beginners often try to guess the problem instead of reading the message first.
+
+Cuando un nodo se pone rojo, el mensaje de error casi siempre dice exactamente qué está mal: una columna faltante, un tipo incompatible, un archivo no encontrado. Los principiantes muchas veces intentan adivinar el problema en lugar de leer el mensaje primero.
+
+To read the error: right-click on the red node → "Open node message."
+
+Para leer el error: clic derecho sobre el nodo rojo → "Open node message."
+
+---
+
+## 6.7 Building everything before testing / Construir todo antes de probar
+
+Do not connect ten nodes before running any of them. Build and execute one or two nodes at a time. This way, if something fails, the cause is obvious.
+
+No conectes diez nodos antes de ejecutar ninguno. Construye y ejecuta uno o dos nodos a la vez. Así, si algo falla, la causa es obvia.
+
+---
+
 # 7. Final summary / Resumen final
 
 KNIME is a visual way to build data workflows. The central idea is simple: data enters the workflow, passes through nodes, and becomes a cleaned, transformed, and analyzed result.
@@ -798,6 +898,22 @@ Si entiendes estas cuatro partes, ya entiendes la base de la mayoría de workflo
 Reader → Filter → Clean → Transform → Aggregate → Visualize
 Lector → Filtrar → Limpiar → Transformar → Agregar → Visualizar
 ```
+
+## Keyboard shortcuts / Atajos de teclado
+
+| Action / Acción | Shortcut / Atajo |
+|---|---|
+| Execute selected node(s) / Ejecutar nodo(s) seleccionado(s) | `F7` |
+| Execute all nodes / Ejecutar todos los nodos | `Shift + F7` |
+| Open node configuration / Abrir configuración del nodo | `F6` or double-click / doble clic |
+| Cancel execution / Cancelar ejecución | `F9` |
+| Reset node / Reiniciar nodo | `F8` |
+| Search nodes (node repository) / Buscar nodos | `Ctrl + Space` in the canvas |
+| Zoom in / Acercar | `Ctrl + +` (or scroll up) |
+| Zoom out / Alejar | `Ctrl + -` (or scroll down) |
+| Fit workflow to screen / Ajustar a pantalla | `Ctrl + Shift + H` |
+
+---
 
 ## Essential beginner nodes / Nodos esenciales para principiantes
 
